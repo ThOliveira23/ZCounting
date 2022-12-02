@@ -114,7 +114,8 @@ if year in (2016, 2017, 2018):
     print("apply prefire corrections - done")
 # <<<---
 
-data['zLumi'] = data['delZCount'] / xsec
+#data['zLumi'] = data['delZCount'] / xsec
+data['zLumi'] = data['ZRate'] * data['timewindow'] * data['deadtime'] / xsec
 
 data['timeDown'] = data['beginTime'].apply(lambda x: to_DateTime(x))
 data['timeUp'] = data['endTime'].apply(lambda x: to_DateTime(x))
