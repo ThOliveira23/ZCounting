@@ -103,7 +103,7 @@ def make_plots(df,
         x_step = 1
     elif xAxis == 'pileUp':
         xTitle="average number of pileup interactions"
-        x_step = 2
+        x_step = 1
     else:
         xTitle=xAxis
         x_step = 0.2
@@ -483,10 +483,16 @@ if year in (2016, 2017, 2018):
     apply_muon_prefire(rates)
     apply_ECAL_prefire(rates)
 
-rates = rates[rates['delZCount'] > 0]
-rates['delZCount'] = rates['delZCount'].apply(lambda x: unc.ufloat(x, np.sqrt(x)))
+#rates = rates[rates['delZCount'] > 0]
+#rates['delZCount'] = rates['delZCount'].apply(lambda x: unc.ufloat(x, np.sqrt(x)))
 
-rates['xsec'] = rates['delZCount'] / rates['recLumi']
+#rates['xsec'] = rates['delZCount'] / rates['recLumi']
+
+rates['recZCount'] = rates['ZRate'] * rates['timewindow'] * rates['deadtime']
+rates = rates[rates['recZCount'] > 0]
+rates['recZCount'] = rates['recZCount'].apply(lambda x: unc.ufloat(x, np.sqrt(x)))
+
+rates['xsec'] = rates['recZCount'] / rates['recLumi']
 
 # rates['xsecI_mc'] = rates['xsecI'] * rates['cIO']**2 
 
@@ -561,4 +567,5 @@ for yy, ylabel, region, mcRes in (
     # 2022
     make_plots(rates, yAxis=yy, yLabel=ylabel, region=region, resource=mcRes, title="corrected", year="2022", normalized=True, xAxis='lumi')
     make_plots(rates, yAxis=yy, yLabel=ylabel, region=region, resource=mcRes, title="corrected", year="2022", normalized=True, xAxis='pileUp')
+
 
