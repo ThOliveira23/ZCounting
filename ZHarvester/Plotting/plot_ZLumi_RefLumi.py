@@ -255,13 +255,14 @@ for fill, data_fill in data.groupby("fill"):
         maxY = max(maxY, max(y))
         minY = min(minY, min(y))
 
-    leg = ax1.legend(loc="upper left", ncol=3,
+    leg = ax1.legend(loc="lower left", ncol=3,
         frameon=True, framealpha=1.0, fancybox=False, edgecolor="black")
     leg.get_frame().set_linewidth(0.8)
     
     yRange = maxY - minY
     ax1.set_ylim([minY-yRange*0.05, maxY + yRange*0.5])
-    ax1.set_xlim([xMin, xMax])
+    #ax1.set_xlim([xMin, xMax])
+    ax1.set_ylim([0.94,1.01])
     ax1.set_xticks(xTicks)
 
     ax1.xaxis.set_major_locator(ticker.NullLocator())
@@ -304,7 +305,8 @@ for fill, data_fill in data.groupby("fill"):
         
     yRange = maxY - minY
     ax2.set_ylim([minY-yRange*0.05, maxY + yRange*0.4])
-    ax2.set_xlim([xMin, xMax])
+    #ax2.set_xlim([xMin, xMax])
+    ax2.set_ylim([0.86,0.94])
     ax2.set_xticks(xTicks)
 
     
