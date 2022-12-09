@@ -35,7 +35,7 @@ if not os.path.isdir(outDir):
 
 secPerLS=float(23.3)
 
-fmt = "png"
+fmt = "pdf"
 
 # plotting options
 
@@ -270,9 +270,10 @@ for fill, data_fill in data.groupby("fill"):
     ax2.set_xlabel(xlabel)
     ax2.set_ylabel(ylabelEff)
 
-    ax2.text(0.54, 0.97, "\\bf{CMS}", verticalalignment='top', transform=ax2.transAxes, fontweight="bold")
-    ax2.text(0.65, 0.97, "\\emph{"+args.label+"}", verticalalignment='top', transform=ax2.transAxes, style='italic') ## DPS Note
-    ax2.text(0.54, 0.86, f"Fill {fill}", verticalalignment='top', transform=ax2.transAxes)    
+    ax2.text(0.30, 0.97, "\\bf{CMS}", verticalalignment='top', transform=ax2.transAxes, fontsize="small", fontweight="bold")
+    ax2.text(0.41, 0.97, "\\emph{"+args.label+"}", verticalalignment='top', transform=ax2.transAxes, fontsize="small", style='italic') ## DPS Note
+    ax2.text(0.30, 0.86, f"13.6 TeV (2022)", verticalalignment='top', transform=ax2.transAxes, fontsize="small")    
+    ax2.text(0.30, 0.75, f"Fill {fill}", verticalalignment='top', transform=ax2.transAxes, fontsize="small")   
 
     maxY = 0
     minY = 1
@@ -334,7 +335,10 @@ for fill, data_fill in data.groupby("fill"):
     ax1.set_ylabel(ylabelLumi)
     ax1.text(0.54, 0.97, "\\bf{CMS}", verticalalignment='top', transform=ax1.transAxes, weight="bold")
     ax1.text(0.65, 0.97, "\\emph{"+args.label+"}", verticalalignment='top', transform=ax1.transAxes,style='italic')        ## DPS Note
-    ax1.text(0.54, 0.89, f"Fill {fill}", verticalalignment='top', transform=ax1.transAxes)    
+    ax1.text(0.54, 0.89, f"13.6 TeV (2022)", verticalalignment='top', transform=ax1.transAxes)    
+    ax1.text(0.54, 0.81, f"Fill {fill}", verticalalignment='top', transform=ax1.transAxes)   
+
+    
         
     if args.xsec == "":
         # normalize Z luminosity to reference luminosity    

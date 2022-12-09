@@ -179,7 +179,7 @@ def make_hist(
     rangey=[0.89,1.11]
 ):
     if year >= 2022:
-        lefttitle = "$\sqrt{s}=13.6\,\mathrm{TeV}$"
+        lefttitle = "$13.6\,\mathrm{TeV}$"
     else:
         lefttitle = "$\sqrt{s}=13\,\mathrm{TeV}$"
 
@@ -247,7 +247,7 @@ def make_hist(
         ax.text(0.03, 0.97, "\\bf{CMS}", verticalalignment='top', transform=ax.transAxes, weight="bold")
         ax.text(0.14, 0.97, "\\emph{"+args.label+"}", verticalalignment='top', transform=ax.transAxes,style='italic')
         ax.text(0.03, 0.91, lefttitle, verticalalignment='top', transform=ax.transAxes,style='italic')
-        ax.text(0.97, 0.97, "$\\mu$ = {0}".format(round(mean,3)), horizontalalignment="right", verticalalignment='top', transform=ax.transAxes)
+        #ax.text(0.97, 0.97, "$\\mu$ = {0}".format(round(mean,3)), horizontalalignment="right", verticalalignment='top', transform=ax.transAxes)
         ax.text(0.97, 0.91, "$\\sigma$ = {0}".format(round(std,3)), horizontalalignment="right", verticalalignment='top', transform=ax.transAxes)
 
         ax.set_xlim(range)
