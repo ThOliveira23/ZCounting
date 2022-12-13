@@ -262,7 +262,7 @@ for fill, data_fill in data.groupby("fill"):
     yRange = maxY - minY
     ax1.set_ylim([minY-yRange*0.05, maxY + yRange*0.5])
     #ax1.set_xlim([xMin, xMax])
-    ax1.set_ylim([0.94,1.01])
+    ax1.set_ylim([0.94,1.005])
     ax1.set_xticks(xTicks)
 
     ax1.xaxis.set_major_locator(ticker.NullLocator())
@@ -307,7 +307,7 @@ for fill, data_fill in data.groupby("fill"):
     yRange = maxY - minY
     ax2.set_ylim([minY-yRange*0.05, maxY + yRange*0.4])
     #ax2.set_xlim([xMin, xMax])
-    ax2.set_ylim([0.86,0.94])
+    ax2.set_ylim([0.86,0.899])
     ax2.set_xticks(xTicks)
 
     

@@ -172,7 +172,7 @@ def make_hist(
     zLumi_name = 'zLumi',
     refLumi_name = 'recLumi',    
     sumN=50,    # make averages of sumN measurements
-    label="Z luminosity / Ref. luminosity",
+    label="Z rate / Ref. luminosity",
     saveas="zcount",
     title=None,
     legend='upper right',
